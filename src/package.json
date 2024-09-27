@@ -1,0 +1,15 @@
+{
+    "name": "bq-cloud-function",
+    "version": "1.0.0",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Alejandra Jaime",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@google-cloud/bigquery": "^7.9.1",
+        "@google-cloud/functions-framework": "^3.4.2"
+    }
+}
