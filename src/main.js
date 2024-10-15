@@ -47,7 +47,8 @@ const parseAirports = (rows) => {
         airportUse = airportUse ? airportUse : airport.airport_use
         let airportMilCode = airportMilCodeMap.get(airport.mil_code)
         airportMilCode = airportMilCode ? airportMilCode : airport.mil_code
-        return `${operationalStatus}|${airportUse}|${airportMilCode}|${airport.faa_identifier}-${airport.name}`
+        //return `${operationalStatusMap}|${airportUse}|${airportMilCode}|${airport.faa_identifier}-${airport.name}-${airport.service_city}`
+        return `${operationalStatusMap}|${airportUse}|${airportMilCode}|${airport.faa_identifier}-${airport.name}`
     })
     return parsedAirports
 }
