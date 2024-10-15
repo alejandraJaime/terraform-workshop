@@ -17,10 +17,9 @@ data "archive_file" "default" {
 }
 
 resource "google_storage_bucket_object" "object" {
-  name   = "${var.user-prefix}-function-src.zip"
+  # Se pasa en source el path del zip creado en el modulo archive_file
+  name   = "${var.user-prefix}-${data.archive_file.default.output_md5}-function-src.zip"
   bucket = google_storage_bucket.default.name
-  
-  # Add path to the zipped function source code
   source = data.archive_file.default.output_path 
 }
 
@@ -29,36 +28,21 @@ resource "google_cloudfunctions_function" "default" {
   description = "first test function"
   runtime = "nodejs20"
 
-  available_memory_mb   = 256
+  available_memory_mb   = 128
   source_archive_bucket = google_storage_bucket.default.name
   source_archive_object = google_storage_bucket_object.object.name
   trigger_http          = true
   entry_point           = "main"
-
-  /* build_config {
-    runtime     = "nodejs20"
-    entry_point = "main" # Set the entry point
-    source {
-      storage_source {
-        bucket = google_storage_bucket.default.name
-        object = google_storage_bucket_object.object.name
-      }
-    }
-  } */
-
-  #service_config {
-  #  max_instance_count = 1
-  #  available_memory   = "256M"
-  #  timeout_seconds    = 60
-  #}
 }
 
-resource "google_cloud_run_service_iam_member" "member" {
-  location = "${var.gcp_region}"
-  service  = google_cloudfunctions_function.default.name
-  role     = "roles/run.invoker"
-  member   = "allUsers"
-}
+/* resource "google_cloudfunctions_function_iam_member" "invoker" {
+  project        = google_cloudfunctions_function.default.project
+  region         = google_cloudfunctions_function.default.region 
+  cloud_function = google_cloudfunctions_function.default.name
+
+  role   = "roles/cloudfunctions.invoker"
+  member = "allUsers"
+} */
 
 output "function_uri" {
   value = google_cloudfunctions_function.default.https_trigger_url #default.service_config[0].uri
