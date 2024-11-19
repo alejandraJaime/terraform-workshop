@@ -2,7 +2,7 @@
 
 ## Visión General
 
-Este repositorio contiene el código y los recursos para un taller enfocado en desplegar una Función en la Nube de Google Cloud Platform (GCP) utilizando Terraform. Los participantes aprenderán a utilizar Terraform para infraestructura como código y a desplegar una función serverless que interactúa con BigQuery.
+Este repositorio contiene el código y los recursos para un taller enfocado en desplegar una Cloud Function de Google Cloud Platform (GCP) utilizando Terraform. Los participantes aprenderán a utilizar Terraform, que es infraestructura como código, y a desplegar una función serverless que interactúa con BigQuery.
 
 ## Requisitos Previos
 
@@ -36,7 +36,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
             terraform -v
             ```
 
--   **Acceso a GCP**: Usaremos una cuenta de servicio para desplegar la arquitectura, pero tener acceso a la consola de GCP es un valor añadido.
+-   **Acceso a GCP**: Usaremos una cuenta de servicio para desplegar la arquitectura, pero tener acceso a la consola de GCP es un valor añadido. Para ello pueden instalar la SDK de Google Cloud Platform desde este [sitio.](https://cloud.google.com/sdk/docs/install?hl=es-419)
 
 ## Clonar el Repositorio Localmente
 
@@ -74,9 +74,9 @@ Para clonar este repositorio en tu máquina local, sigue estos pasos:
     ```
     Deberías ver el contenido del repositorio listado en tu terminal. ¡Ahora tienes una copia local del repositorio y puedes comenzar a trabajar en él!
 
-## Detalles de la Función en la Nube
+## Detalles de la Cloud Function
 
-La función en la nube de este taller está construida con Node.js y utiliza la Biblioteca de Cliente de Node.js de BigQuery de GCP. Esta función está diseñada para acceder a una tabla pública de BigQuery, analizar la información relevante de cada registro y convertirla en un formato de cadena. La función se activa a través de solicitudes HTTP, lo que la hace accesible y fácil de integrar con otros servicios.
+La Cloud Function de este taller está construida con Node.js y utiliza la Biblioteca de Cliente de Node.js de BigQuery de GCP. Esta función está diseñada para acceder a una tabla pública de BigQuery, analizar la información relevante de cada registro y convertirla en un string con un formato especifico. La función se activa a través de solicitudes HTTP, lo que la hace accesible y fácil de integrar con otros servicios.
 
 -   **Node.js**: [Sitio Oficial de Node.js](#)
 -   **Biblioteca de Cliente de Node.js de BigQuery**: [Biblioteca de Cliente de BigQuery](#)

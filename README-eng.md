@@ -36,7 +36,7 @@ Before you begin, make sure you have the following:
             terraform -v
             ```
 
--   **Access to GCP**: We will be using a service account for deploying the architecture, but access to GCP's console is a nice-to-have.
+-   **Access to GCP**: We will be using a service account for deploying the architecture, but access to GCP's console is a nice-to-have. You can install the GCP Cloud SDK from this [site.](https://cloud.google.com/sdk/docs/install)
 
 ## Cloning the Repository Locally
 
