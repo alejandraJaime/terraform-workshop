@@ -13,11 +13,11 @@ variable "gcp_region" {
 # Ruta del archivo de credenciales 
 variable "sa_credentials_file_path" {
   type = string
-  default = "../../credentials/sa-credentials.json"
+  default = "../../credentials/terraform-workshop-sa.json"
 }
 
 # Agrega un prefijo unico para identificar tu infra 
 variable "user-prefix" {
   type = string
-  default = "ale-jaime"
+  default = "ale-jaime-sa"
 }
