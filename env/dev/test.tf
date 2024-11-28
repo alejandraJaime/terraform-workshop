@@ -1,5 +1,40 @@
-resource "random_id" "default" {
-  byte_length = 4
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "6.7.0"
+    }
+  }
+}
+
+provider "google" {
+  project = "my project"
+  region = "us-east1"
+  credentials = "./path"
+}
+
+# Id del proyecto en GCP
+variable "gcp_project" {
+  type = string
+  default = "mm-spla-tse-internal-hub"
+}
+
+# Region en que vamos a desplegar el bucket de GCS
+variable "gcp_region" {
+  type = string
+  default = "us-east1"
+}
+
+# Ruta del archivo de credenciales 
+variable "sa_credentials_file_path" {
+  type = string
+  default = "../../credentials/sa-credentials.json"
+}
+
+# Agrega un prefijo unico para identificar tu infra 
+variable "user-prefix" {
+  type = string
+  default = "ale-jaime"
 }
 
 resource "google_storage_bucket" "default" {
