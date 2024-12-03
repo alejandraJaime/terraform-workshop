@@ -45,7 +45,7 @@ resource "google_cloud_scheduler_job" "job" {
   http_target {
     http_method = "POST"
     uri         = google_cloudfunctions_function.default.https_trigger_url
-    body        = base64encode("{\"Country\":\"United States\"}")
+    body        = base64encode("{\"country\":\"United States\"}")
     headers = {
       "Content-Type" = "application/json"
     }
