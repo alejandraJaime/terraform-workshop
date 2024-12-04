@@ -18,7 +18,7 @@ resource "google_storage_bucket_object" "source-zip" {
 }
 
 resource "google_cloudfunctions_function" "function" {
-  name        = "${var.prefix}-airport-parser-wk"
+  name        = "${var.prefix}-airport-parser"
   runtime     = "nodejs20"
 
   available_memory_mb   = 128
@@ -26,4 +26,8 @@ resource "google_cloudfunctions_function" "function" {
   source_archive_object = google_storage_bucket_object.source-zip.name
   trigger_http          = true
   entry_point           = "main"
+}
+
+output "cloud-function-uri" {
+  value = google_cloudfunctions_function.function.https_trigger_url
 }

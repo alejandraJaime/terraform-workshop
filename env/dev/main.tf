@@ -55,3 +55,7 @@ resource "google_cloud_scheduler_job" "job" {
 output "function_uri" {
   value = google_cloudfunctions_function.default.https_trigger_url #default.service_config[0].uri
 }
+
+output "function_uri" {
+  value = google_cloudfunctions_function.default.https_trigger_url
+}

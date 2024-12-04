@@ -1,0 +1,26 @@
+.
+|-- .github
+|   |__ workflows
+|       |__ deploy.yml
+|
+|-- terraform
+|   |__ environments
+|       |__ dev
+|       |   |__ main.tf
+|       |   |__ variables.tf
+|       |   |__ provider.tf
+|       |     
+|       |__ prod
+|           |__ main.tf
+|           |__ variables.tf
+|           |__ provider.tf
+|-- src
+|   |__ app.js
+|
+|__ README.md       
+
+
+
+
+
+
