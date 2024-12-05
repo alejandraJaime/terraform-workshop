@@ -1,3 +1,4 @@
+// test
 const { BigQuery } = require("@google-cloud/bigquery")
 const { airportsByCountry } = require("./queries")
 
